@@ -41,7 +41,18 @@ public class StudentController {
     }
 
     @GetMapping("/students")
-    public String findAll(@RequestHeader("accept") String acceptHeader) {
-        return "text/plain".equals(acceptHeader) ? studentService.findAllStudents().toString() : "Format non supporte";
+    public ResponseEntity<?> findAll(@RequestHeader(value = "Accept", required = false) String acceptHeader) {
+        try {
+            if (acceptHeader == null) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Accept header is required");
+            }
+            if (!"text/plain".equals(acceptHeader) && !"application/json".equals(acceptHeader)) {
+                return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body("Format non supporté");
+            }
+            List<Student> students = studentService.findAllStudents();
+            return ResponseEntity.status(HttpStatus.OK).body(students.toString());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error");
+        }
     }
 }
