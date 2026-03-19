@@ -31,9 +31,13 @@ public class StudentController {
     }
 
     @PostMapping("/students")
-    public String save(@RequestBody List<Student> studentsToCreate) {
-        List<Student> students = studentService.save(studentsToCreate);
-        return students.toString();
+    public ResponseEntity<String> save(@RequestBody List<Student> studentsToCreate) {
+        try {
+            List<Student> students = studentService.save(studentsToCreate);
+            return ResponseEntity.status(HttpStatus.CREATED).body(students.toString());
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.toString());
+        }
     }
 
     @GetMapping("/students")
