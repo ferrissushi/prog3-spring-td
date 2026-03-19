@@ -15,12 +15,13 @@ import com.ferrissushi.springintro.entity.Student;
 import com.ferrissushi.springintro.service.StudentService;
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class StudentController {
 
-    private StudentService studentService;
+    private final StudentService studentService;
 
     @GetMapping("/welcome")
     public ResponseEntity<String> welcome(@RequestParam(required = false) String name) {

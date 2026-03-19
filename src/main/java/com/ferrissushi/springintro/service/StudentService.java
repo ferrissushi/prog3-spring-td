@@ -5,22 +5,22 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.ferrissushi.springintro.entity.Student;
-import com.ferrissushi.springintro.repository.StudentRepositoryImpl;
+import com.ferrissushi.springintro.repository.StudentRepository;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class StudentService {
 
-    private StudentRepositoryImpl studentRepositoryImpl;
+    private final StudentRepository studentRepository ;
 
     public List<Student> findAllStudents() {
-        return studentRepositoryImpl.findAllStudent();
+        return studentRepository.findAllStudent();
     }
 
     public List<Student> save(List<Student> studentsToCreate) {
-        return studentRepositoryImpl.save(studentsToCreate);
+        return studentRepository.save(studentsToCreate);
     }
 
 }
