@@ -19,4 +19,8 @@ public class StudentService {
         return studentRepositoryImpl.findAllStudent();
     }
 
+    public List<Student> postStudent(List<Student> studentsToCreate) {
+        return studentRepositoryImpl.createAllStudent(studentsToCreate);
+    }
+
 }
