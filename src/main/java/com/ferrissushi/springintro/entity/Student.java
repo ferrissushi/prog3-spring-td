@@ -20,6 +20,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return this.firstname;
+        return this.firstname + " " + this.lastname;
     }
 }
