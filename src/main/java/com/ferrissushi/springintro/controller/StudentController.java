@@ -24,7 +24,7 @@ public class StudentController {
         return "Welcome " + name;
     }
 
-    @PostMapping("/student")
+    @PostMapping("/students")
     public String createStudent(@RequestBody List<Student> studentsToCreate) {
         List<Student> students = studentService.postStudent(studentsToCreate);
         return students.toString();
