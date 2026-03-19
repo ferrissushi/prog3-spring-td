@@ -15,12 +15,12 @@ public class StudentService {
 
     private StudentRepositoryImpl studentRepositoryImpl;
 
-    public List<Student> getStudent() {
+    public List<Student> findAllStudents() {
         return studentRepositoryImpl.findAllStudent();
     }
 
-    public List<Student> postStudent(List<Student> studentsToCreate) {
-        return studentRepositoryImpl.createAllStudent(studentsToCreate);
+    public List<Student> save(List<Student> studentsToCreate) {
+        return studentRepositoryImpl.save(studentsToCreate);
     }
 
 }

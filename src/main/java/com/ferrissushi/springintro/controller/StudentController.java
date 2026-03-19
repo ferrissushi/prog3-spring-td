@@ -26,13 +26,13 @@ public class StudentController {
     }
 
     @PostMapping("/students")
-    public String createStudent(@RequestBody List<Student> studentsToCreate) {
-        List<Student> students = studentService.postStudent(studentsToCreate);
+    public String save(@RequestBody List<Student> studentsToCreate) {
+        List<Student> students = studentService.save(studentsToCreate);
         return students.toString();
     }
 
     @GetMapping("/students")
-    public String getStudent(@RequestHeader("accept") String acceptHeader) {
-        return "text/plain".equals(acceptHeader) ? studentService.getStudent().toString() : "Format non supporte";
+    public String findAll(@RequestHeader("accept") String acceptHeader) {
+        return "text/plain".equals(acceptHeader) ? studentService.findAllStudents().toString() : "Format non supporte";
     }
 }

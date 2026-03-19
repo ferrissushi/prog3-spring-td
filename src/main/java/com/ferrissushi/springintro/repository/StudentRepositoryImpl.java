@@ -21,7 +21,7 @@ public class StudentRepositoryImpl implements StudentRepository {
     }
 
     @Override
-    public List<Student> createAllStudent(List<Student> studentsToCreate) {
+    public List<Student> save(List<Student> studentsToCreate) {
         studentsToCreate.forEach((Student studentToCreate) -> {
             students.add(studentToCreate);
         });

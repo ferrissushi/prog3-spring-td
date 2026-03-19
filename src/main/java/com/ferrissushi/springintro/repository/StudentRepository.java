@@ -7,5 +7,5 @@ import com.ferrissushi.springintro.entity.Student;
 public interface StudentRepository {
 
     List<Student> findAllStudent();
-    List<Student> createAllStudent(List<Student> students);
+    List<Student> save(List<Student> students);
 }
