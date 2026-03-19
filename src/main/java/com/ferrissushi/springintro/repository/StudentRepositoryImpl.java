@@ -8,9 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.ferrissushi.springintro.entity.Student;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
 @Repository
 @AllArgsConstructor
@@ -20,6 +17,14 @@ public class StudentRepositoryImpl implements StudentRepository {
 
     @Override
     public List<Student> findAllStudent() {
+        return students;
+    }
+
+    @Override
+    public List<Student> createAllStudent(List<Student> studentsToCreate) {
+        studentsToCreate.forEach((Student studentToCreate) -> {
+            students.add(studentToCreate);
+        });
         return students;
     }
 
