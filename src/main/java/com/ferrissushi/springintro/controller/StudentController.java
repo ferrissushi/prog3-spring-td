@@ -41,7 +41,7 @@ public class StudentController {
     }
 
     @GetMapping("/students")
-    public ResponseEntity<?> findAll(@RequestHeader(value = "Accept", required = false) String acceptHeader) {
+    public ResponseEntity<String> findAll(@RequestHeader(value = "Accept", required = false) String acceptHeader) {
         try {
             if (acceptHeader == null) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Accept header is required");
@@ -51,8 +51,8 @@ public class StudentController {
             }
             List<Student> students = studentService.findAllStudents();
             return ResponseEntity.status(HttpStatus.OK).body(students.toString());
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error");
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.toString());
         }
     }
 }
