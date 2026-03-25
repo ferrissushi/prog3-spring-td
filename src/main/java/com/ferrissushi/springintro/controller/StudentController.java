@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ferrissushi.springintro.entity.Student;
 import com.ferrissushi.springintro.service.StudentService;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @RestController
