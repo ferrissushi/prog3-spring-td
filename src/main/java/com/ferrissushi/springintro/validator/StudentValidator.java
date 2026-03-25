@@ -3,12 +3,14 @@ package com.ferrissushi.springintro.validator;
 import com.ferrissushi.springintro.entity.Student;
 
 import lombok.AllArgsConstructor;
+import lombok.Setter;
 
 @AllArgsConstructor
+@Setter
 public class StudentValidator {
     private Student student;
 
-    public StudentValidatorResponse isValid() {
+    public StudentValidatorResponse checkValidation() {
         if (student.getFirstname() == null || student.getFirstname().isBlank()) {
             return new StudentValidatorResponse("firstname", false);
         }
