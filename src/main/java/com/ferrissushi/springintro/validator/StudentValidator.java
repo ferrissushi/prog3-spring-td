@@ -8,12 +8,19 @@ import lombok.AllArgsConstructor;
 public class StudentValidator {
     private Student student;
 
-    public boolean isValid() {
-        if (student.getReference() == null || student.getReference().isBlank() || student.getLastname() == null
-                || student.getLastname().isBlank() || student.getFirstname() == null
-                || student.getFirstname().isBlank()) {
-            return false;
+    public StudentValidatorResponse isValid() {
+        if (student.getFirstname() == null || student.getFirstname().isBlank()) {
+            return new StudentValidatorResponse("firstname", false);
         }
-        return true;
+        if (student.getLastname() == null || student.getLastname().isBlank()) {
+            return new StudentValidatorResponse("lastname", false);
+        }
+        if (student.getReference() == null || student.getReference().isBlank()) {
+            return new StudentValidatorResponse("reference", false);
+        }
+        return new StudentValidatorResponse(null, true);
+    }
+
+    public record StudentValidatorResponse(String missingField, Boolean isValid) {
     }
 }
