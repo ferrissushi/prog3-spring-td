@@ -36,6 +36,8 @@ public class StudentController {
         try {
             List<Student> students = studentService.save(studentsToCreate);
             return ResponseEntity.status(HttpStatus.CREATED).body(students.toString());
+        } catch (BadRequestException e) {
+            return ResponseEntity.status(e.getHttpStatus()).body(e.getMessage());
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.toString());
         }
