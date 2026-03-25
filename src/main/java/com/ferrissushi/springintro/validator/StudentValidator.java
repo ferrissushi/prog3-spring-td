@@ -1,12 +1,15 @@
 package com.ferrissushi.springintro.validator;
 
+import org.springframework.stereotype.Component;
+
 import com.ferrissushi.springintro.entity.Student;
 
-import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
 @Setter
+@Component
+@NoArgsConstructor
 public class StudentValidator {
     private Student student;
 

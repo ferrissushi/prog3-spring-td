@@ -8,7 +8,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ApiException extends RuntimeException {
-    private String message;
     private HttpStatus httpStatus;
 
     public ApiException(String message, HttpStatus httpStatus) {
