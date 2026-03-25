@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ferrissushi.springintro.entity.Student;
+import com.ferrissushi.springintro.exception.BadRequestException;
 import com.ferrissushi.springintro.service.StudentService;
 
 import lombok.RequiredArgsConstructor;
